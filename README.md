@@ -20,8 +20,11 @@ One folder per screen or band of the cassette deck, one file per track, named af
 lowercase with dashes:
 
 ```
-jazz/        the jazz bar at night (jazz.js) and the deck's Jazz band
+jazz/        the jazz bar at night (jazz.js, one after the other) and the deck's Jazz band
   just-one-more-drink.mp3
+  whispers-and-jazz.mp3
+  bunny-chic-swing-time.mp3
+  electro-swing-queen.mp3
 night/       the calm night after the metal show (calm.js) and the deck's Late night band
   mystical-forest.mp3
 metal/       the metal show (metal.js)
@@ -33,10 +36,18 @@ christmas/   the Christmas turntable (christmas.js)
   jingle-bell-rock.mp3
 snowman/     the snowman's fifth button (snowman.js)
   megalovania.mp3
+lofi/        the deck's Lofi band (tapes.js)
+  1-am-study-session.mp3
+halloween/   the Halloween cocotte (hwmusic.js) and the deck's Halloween band
+  lofi-girl-halloween-2024.mp3
+sakura/      the sakura shamisen (skplayer.js) and the deck's Sakura band
+  wafu-rock.mp3
+  sengoshin.mp3
+  tao.m4a
 ```
 
-The tracks that still play from YouTube (Lofi, Halloween, Sakura) get their folder here when they
-become files: `lofi/`, `halloween/`, `sakura/`. The live radios stay streams.
+The other tracks of those bands still play from YouTube until they become files here. The live
+radios stay streams.
 
 ## Adding a track
 
