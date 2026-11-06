@@ -11,10 +11,8 @@ served at:
 https://alphaxt38g.github.io/notes-musics/<folder>/<file>
 ```
 
-The engine reads the music from there: its `music` setting (see `notes_engine/config.py` in the
-engine) is this address, and every player asks for `<music><folder>/<file>`. Nothing is copied into
-the notes sites, which stay light. The sound effects (the werewolf's howl...) are not music and
-stay in the engine.
+The engine plays the music from there (its `music` setting): nothing is copied into the notes
+sites. Short sound effects (the werewolf's howl...) stay in the engine.
 
 ## Layout
 
@@ -47,26 +45,20 @@ become files: `lofi/`, `halloween/`, `sakura/`. The live radios stay streams.
    `ffmpeg -i in.webm -vn -c:a aac -b:a 80k sakura/koto.m4a`
 2. Put it in the folder of its screen, named like the others.
 3. Run `python check.py`: sizes, names, total.
-4. In the engine, point the player at it by its path in this repository (`"sakura/koto.m4a"`):
-   `file:` of a tape in `tapes.js`, `SK_TRACKS`, `HW_TRACKS`... The engine's tests check that
-   every path it names exists here.
-5. Commit and push here; the site plays it as soon as GitHub Pages has published (a minute).
+4. Commit and push here, and wait for GitHub Pages to publish it (a minute).
+5. Then, in the engine, name it by its path here (`"sakura/koto.m4a"`): `file:` of a tape in
+   `tapes.js`, `SK_TRACKS`, `HW_TRACKS`... The engine's tests check that every path it names
+   exists here.
 
-Renaming or removing a file breaks the engine versions that still name it: change both together.
+Renaming or removing a file breaks the engine while it still names the old path: update the
+engine first, remove the old file after.
 
 ## Limits
 
 GitHub refuses a pushed file over **100 MB**, and a Pages site holds **1 GB** at most (Git LFS
-files are not served by Pages: do not use LFS here). `check.py` warns from 95 MB per file and
+files are not served by Pages: do not use LFS here). `check.py` fails from 95 MB per file and
 900 MB in total. Past 1 GB, the long mixes can move to the assets of a GitHub release of this
 repository (2 GB per file, no total), and the engine's `music` setting can point anywhere else
 serving the same folders.
 
-## Local preview
-
-Serve this folder and build the notes with it instead of GitHub Pages:
-
-```bash
-python -m http.server 8766          # here, in notes-musics
-NOTES_MUSIC=http://localhost:8766/ python -m notes_engine --root ../notes_ba5 --index-only
-```
+To hear a track before pushing it, see "Build and preview locally" in the engine's `AGENTS.md`.

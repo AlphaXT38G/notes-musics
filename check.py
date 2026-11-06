@@ -22,9 +22,9 @@ def main():
     errors, total = [], 0
     files = sorted(p for p in HERE.rglob("*") if p.is_file() and ".git" not in p.parts)
     for p in files:
-        rel = p.relative_to(HERE).as_posix()
         if p.suffix.lower() not in AUDIO:
             continue
+        rel = p.relative_to(HERE).as_posix()
         size = p.stat().st_size
         total += size
         print(f"{size / MB:7.1f} MB  {rel}")
